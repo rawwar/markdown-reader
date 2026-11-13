@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-selection, rgba(59, 130, 246, 0.3));
+}
+
+/* Markdown content styles */
+.markdown-content {
+  @apply prose prose-lg max-w-none;
+  font-family: var(--font-family, 'Inter', system-ui, sans-serif);
+  font-size: var(--font-size-base, 16px);
+  line-height: var(--line-spacing, 1.7);
+}
+
+.markdown-content h1 {
+  @apply text-4xl font-bold mb-6 mt-8;
+  color: var(--color-primary);
+  opacity: 1;
+}
+
+.markdown-content h2 {
+  @apply text-3xl font-semibold mb-4 mt-6;
+  color: var(--color-primary);
+  opacity: 0.95;
+}
+
+.markdown-content h3 {
+  @apply text-2xl font-semibold mb-3 mt-5;
+  color: var(--color-primary);
+  opacity: 0.9;
+}
+
+.markdown-content h4 {
+  @apply text-xl font-semibold mb-2 mt-4;
+  color: var(--color-primary);
+  opacity: 0.85;
+}
+
+.markdown-content h5,
+.markdown-content h6 {
+  @apply text-lg font-semibold mb-2 mt-3;
+  color: var(--color-foreground);
+  opacity: 0.9;
+}
+
+.markdown-content p {
+  @apply mb-4 leading-relaxed;
+}
+
+.markdown-content code {
+  @apply px-1.5 py-0.5 rounded text-sm font-mono;
+  background-color: var(--color-codeBackground);
+  color: var(--color-codeForeground);
+  opacity: 0.8;
+}
+
+.markdown-content pre {
+  @apply p-4 rounded-lg overflow-x-auto mb-4;
+  background-color: var(--color-codeBackground);
+  color: var(--color-codeForeground);
+}
+
+.markdown-content pre code {
+  @apply bg-transparent p-0;
+}
+
+.markdown-content blockquote {
+  @apply border-l-4 pl-4 italic my-4;
+  border-color: var(--color-primary);
+  opacity: 0.8;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  @apply mb-4 pl-6;
+}
+
+.markdown-content li {
+  @apply mb-2;
+}
+
+.markdown-content a {
+  @apply hover:underline;
+  color: var(--color-primary);
+}
+
+.markdown-content img {
+  @apply max-w-full h-auto rounded-lg my-4;
+}
+
+.markdown-content table {
+  @apply w-full border-collapse mb-4;
+}
+
+.markdown-content th,
+.markdown-content td {
+  @apply border px-4 py-2;
+}
+
+.markdown-content th {
+  @apply font-semibold;
+}
+
+/* PDF Viewer Styles */
+.react-pdf__Page {
+  margin: 0 auto 1.5rem;
+  position: relative;
+}
+
+.react-pdf__Page__canvas {
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: filter 0.3s ease;
+}
+
+.react-pdf__Page__textContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  opacity: 0;
+  line-height: 1;
+  pointer-events: auto;
+}
+
+.react-pdf__Page__textContent span {
+  color: transparent !important;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0% 0%;
+  user-select: text;
+}
+
+.react-pdf__Page__annotations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.react-pdf__Page__annotations a {
+  pointer-events: auto;
+}
+
